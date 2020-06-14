@@ -1,7 +1,7 @@
 use web_sys::window;
 
 
-pub fn render() {
+pub fn reactdom() {
     // Use `web_sys`'s global `window` function to get a handle on the global
     // window object.
     let window = window().expect("no global `window` exists");
