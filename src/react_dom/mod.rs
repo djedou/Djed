@@ -1,1 +1,1 @@
-mod v_dom;
+pub mod v_dom;

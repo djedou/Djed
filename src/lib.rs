@@ -1,1 +1,1 @@
-mod react_dom;
+pub mod react_dom;
