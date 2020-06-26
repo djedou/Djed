@@ -1,2 +1,2 @@
 # djed  
-Reactrs is React in Rust and WebAssembly  
+Djed is React in Rust and WebAssembly  
