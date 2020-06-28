@@ -7,7 +7,7 @@ pub use djed::{
     EmptyBuilder, ComponentLink, Href, ShouldRender
 };
 pub use scope::{
-    AnyScope, Scope, ComponentUpdate, Scoped
+    AnyScope, Scope, ComponentUpdate, Scoped,
 };
 
 //pub use listener::*;
