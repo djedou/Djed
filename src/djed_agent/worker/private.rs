@@ -4,7 +4,7 @@ use std::marker::PhantomData;
 use web_sys::{Worker};
 use crate::djed_agent::{
     agent::{Agent, HandlerId, Discoverer, Bridge},
-    worker::{send_to_remote, FromWorker, ToWorker, worker_new}
+    worker::{send_to_remote, FromWorker, ToWorker, worker_new, Packed, WorkerExt}
 };
 use serde::{Deserialize, Serialize};
 

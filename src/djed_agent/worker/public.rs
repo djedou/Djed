@@ -2,7 +2,7 @@ use crate::djed_agent::{
     Agent, Discoverer, Bridge, Dispatchable, HandlerId, AgentScope, Responder,
     AgentLink, AgentLifecycleEvent, locate_callback_and_respond, Last, SharedOutputSlab
 };
-use super::{FromWorker, worker_new, ToWorker, send_to_remote, worker_self, Threaded};
+use super::{FromWorker, worker_new, ToWorker, send_to_remote, worker_self, Threaded, Packed};
 use crate::callback::Callback;
 use crate::scheduler::Shared;
 use anymap::{self, AnyMap};

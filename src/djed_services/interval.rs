@@ -38,3 +38,9 @@ impl Task for IntervalTask {
         true
     }
 }
+
+impl Drop for IntervalTask {
+    fn drop(&mut self) {
+    }
+}
+

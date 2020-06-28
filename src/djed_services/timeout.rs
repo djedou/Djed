@@ -36,3 +36,9 @@ impl Task for TimeoutTask {
         self.0.is_some()
     }
 }
+
+impl Drop for TimeoutTask {
+    fn drop(&mut self) {
+
+    }
+}

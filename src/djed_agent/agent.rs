@@ -50,10 +50,10 @@ pub trait Agent: Sized + 'static {
 pub struct HandlerId(pub usize, pub bool);
 
 impl HandlerId {
-    fn new(id: usize, respondable: bool) -> Self {
+    pub fn new(id: usize, respondable: bool) -> Self {
         HandlerId(id, respondable)
     }
-    fn raw_id(self) -> usize {
+    pub fn raw_id(self) -> usize {
         self.0
     }
     /// Indicates if a handler id corresponds to callback in the Agent runtime.

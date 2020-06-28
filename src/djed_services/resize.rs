@@ -51,8 +51,8 @@ impl ResizeService {
     /// Register a callback that will be called when the browser window resizes.
     pub fn register(&mut self, callback: Callback<WindowDimensions>) -> ResizeTask {
         let callback =
-            move |_event: ResizeEvent| {
-                let window = web_sys::window().unwrap();
+            move |_event: &Event| {
+                let window =  web_sys::window().unwrap();
                 let dimensions = WindowDimensions::get_dimensions(&window);
                 callback.emit(dimensions);
             };

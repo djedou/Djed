@@ -153,7 +153,7 @@ impl WebSocketService {
     }
 }
 
-struct ConnectCommon(WebSocket, #[cfg(feature = "web_sys")] [EventListener; 3]);
+struct ConnectCommon(WebSocket, [EventListener; 3]);
 
 fn process_binary<OUT: 'static>(event: &MessageEvent, callback: &Callback<OUT>) where
     OUT: From<Binary>,
