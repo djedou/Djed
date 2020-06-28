@@ -1,4 +1,4 @@
-mod listener;
+pub mod listener;
 mod scope;
 mod djed;
 
@@ -9,7 +9,6 @@ pub use djed::{
 pub use scope::{
     AnyScope, Scope, ComponentUpdate, Scoped,
 };
-pub use listener::*;
 
 //pub use listener::*;
 //pub use scope::{AnyScope, Scope};
