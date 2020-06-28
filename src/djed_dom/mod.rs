@@ -23,4 +23,4 @@ pub use v_dom::{
 pub use v_comp::{
     VComp,VChild
 };
-pub use djed_dom::Render;
+pub use djed_dom::{Render, initialize};

@@ -3,7 +3,7 @@ mod scope;
 mod djed;
 
 pub use djed::{
-    ChildrenRenderer, Component, Html, Children, ChildrenWithProps, NodeRef, Renderable, Properties,
+    ChildrenRenderer, Component, Html, Children, ChildrenWithProps, NodeRef, Renderable, Props,
     EmptyBuilder, ComponentLink, Href
 };
 pub use scope::{

@@ -28,9 +28,9 @@ serde_yaml = "0.8.3"
 slab = "0.4"
 thiserror = "1"
 toml =  "0.5"
-#wasm-bindgen = { version = "0.2.60", optional = true }
 wasm-bindgen-futures = "0.4"
-#yew-macro = { version = "0.16.1", path = "../yew-macro" }
+djed_macros = {git = "https://github.com/djedou/djed_macros"}
+
 
 
 [dependencies.web-sys]

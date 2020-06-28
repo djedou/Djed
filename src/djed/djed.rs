@@ -44,7 +44,7 @@ pub trait Component: Sized + 'static {
     /// }
     ///# }}
     /// ```
-    type Props: Properties;
+    type Props: Props;
 
     /// Components are created with their properties as well as a `ComponentLink` which
     /// can be used to send messages and create callbacks for triggering updates.
@@ -445,7 +445,7 @@ impl<COMP: Component> Renderable for COMP {
 }
 
 /// Trait for building properties for a component
-pub trait Properties: Clone {
+pub trait Props: Clone {
     /// Builder that will be used to construct properties
     type Builder;
 
@@ -458,7 +458,7 @@ pub trait Properties: Clone {
 #[doc(hidden)]
 pub struct EmptyBuilder;
 
-impl Properties for () {
+impl Props for () {
     type Builder = EmptyBuilder;
 
     fn builder() -> Self::Builder {
