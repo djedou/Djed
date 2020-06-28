@@ -11,24 +11,24 @@ pub mod timeout;
 pub mod websocket;
 
 #[doc(inline)]
-pub use self::console::ConsoleService;
+pub use console::ConsoleService;
 #[doc(inline)]
-pub use self::dialog::DialogService;
-pub use self::fetch::FetchService;
+pub use dialog::DialogService;
+pub use fetch::FetchService;
 #[doc(inline)]
-pub use self::interval::IntervalService;
+pub use interval::IntervalService;
 #[doc(inline)]
-pub use self::reader::ReaderService;
+pub use reader::ReaderService;
 #[doc(inline)]
-pub use self::render::RenderService;
+pub use render::RenderService;
 #[doc(inline)]
-pub use self::resize::ResizeService;
+pub use resize::ResizeService;
 #[doc(inline)]
-pub use self::storage::StorageService;
+pub use storage::StorageService;
 #[doc(inline)]
-pub use self::timeout::TimeoutService;
+pub use timeout::TimeoutService;
 #[doc(inline)]
-pub use self::websocket::WebSocketService;
+pub use websocket::WebSocketService;
 
 use std::time::Duration;
 

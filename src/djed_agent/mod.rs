@@ -13,4 +13,4 @@ pub use worker::{Private, Public, Threaded};
 */
 pub use agent::{Bridged, Bridge, Discoverer, HandlerId, Agent};
 pub use pool::{Last, SharedOutputSlab, locate_callback_and_respond, Dispatcher, Dispatched, Dispatchable};
-pub use link::{Responder, AgentLink, AgentScope, AgentLifecycleEvent, };
+pub use link::{Responder, AgentLink, AgentScope, AgentLifecycleEvent};

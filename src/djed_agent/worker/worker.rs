@@ -97,7 +97,7 @@ pub fn worker_new(name_of_resource: &str, is_module: bool) -> Worker {
     }
 }
 
-fn worker_self() -> DedicatedWorkerGlobalScope {
+pub fn worker_self() -> DedicatedWorkerGlobalScope {
     JsValue::from(global()).into()
 }
 

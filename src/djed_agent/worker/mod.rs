@@ -7,5 +7,5 @@ mod worker;
 pub use private::Private;
 pub use public::Public;
 
-pub use worker::{Threaded, Packed, send_to_remote, worker_new, WorkerExt, FromWorker, ToWorker};
+pub use worker::{Threaded, Packed, send_to_remote, worker_new, worker_self, WorkerExt, FromWorker, ToWorker};
 pub use macros::*;

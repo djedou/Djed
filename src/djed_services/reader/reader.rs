@@ -1,6 +1,10 @@
 //use super::*;
+use crate::djed_services::reader::{FileData, FileChunk};
+use crate::djed_services::{Task};
+use js_sys::Uint8Array;
 use crate::callback::Callback;
-use crate::djed_services::Task;
+use std::fmt;
+
 
 
 #[doc(no_inline)]
@@ -8,8 +12,11 @@ pub use ::web_sys::{Blob, File};
 use ::web_sys::{Event, FileReader};
 use anyhow::{anyhow, Result};
 use gloo::events::EventListener;
-use js_sys::Uint8Array;
 use std::cmp;
+
+/// A reader service attached to a user context.
+#[derive(Default, Debug)]
+pub struct ReaderService {}
 
 impl ReaderService {
     /// Creates a new service instance connected to `App` by provided `sender`.
@@ -103,5 +110,19 @@ pub struct ReaderTask {
 impl Task for ReaderTask {
     fn is_active(&self) -> bool {
         self.file_reader.ready_state() == FileReader::LOADING
+    }
+}
+
+impl fmt::Debug for ReaderTask {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_str("ReaderTask")
+    }
+}
+
+impl Drop for ReaderTask {
+    fn drop(&mut self) {
+        if self.is_active() {
+            self.file_reader.abort();
+        }
     }
 }

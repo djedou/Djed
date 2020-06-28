@@ -1,8 +1,7 @@
-//use crate::services::Task;
-use std::fmt;
+
 mod reader;
 
-pub use reader::{};
+pub use reader::{ReaderService};
 //pub use self::web_sys::*;
 
 /// Struct that represents data of a file.
@@ -31,22 +30,4 @@ pub enum FileChunk {
     },
     /// Reading of chunks finished. Equals **100%** progress.
     Finished,
-}
-
-/// A reader service attached to a user context.
-#[derive(Default, Debug)]
-pub struct ReaderService {}
-
-impl fmt::Debug for ReaderTask {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("ReaderTask")
-    }
-}
-
-impl Drop for ReaderTask {
-    fn drop(&mut self) {
-        if self.is_active() {
-            self.file_reader.abort();
-        }
-    }
 }

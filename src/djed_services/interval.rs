@@ -1,4 +1,4 @@
-use super::{to_ms, Task};
+use crate::djed_services::{to_ms, Task};
 use crate::callback::Callback;
 use std::fmt;
 use std::time::Duration;
