@@ -26,7 +26,7 @@ pub use djed_macros::html_nested;
 
 /// The module that contains all events available in the framework.
 pub mod events {
-    pub use crate::djed::listener::*;
+    //pub use crate::djed::listener::*;
 
     pub use web_sys::{
         AnimationEvent, DragEvent, ErrorEvent, Event, FocusEvent, InputEvent, KeyboardEvent,

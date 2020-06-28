@@ -9,6 +9,7 @@ pub use djed::{
 pub use scope::{
     AnyScope, Scope, ComponentUpdate, Scoped,
 };
+pub use listener::*;
 
 //pub use listener::*;
 //pub use scope::{AnyScope, Scope};
