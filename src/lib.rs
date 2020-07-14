@@ -18,11 +18,11 @@ pub use djed_macros::html_nested;
 
 
 /// This module contains macros which implements html! macro and JSX-like templates
-/*pub mod macros {
-    pub use crate::html;
-    pub use crate::html_nested;
+pub mod macros {
+    //pub use crate::html;
+    //pub use crate::html_nested;
     pub use djed_macros::Properties;
-}*/
+}
 
 /// The module that contains all events available in the framework.
 pub mod events {
