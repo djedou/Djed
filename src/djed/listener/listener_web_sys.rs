@@ -108,4 +108,6 @@ impl_action! {
     onfocusin(name: "onfocusin", event: Event) -> web_sys::Event => |_, event| { event }
     onfocusout(name: "onfocusout", event: Event) -> web_sys::Event => |_, event| { event }
 
+    onmousewheel(name: "onmousewheel", event: MouseEvent) -> web_sys::MouseEvent => |_, event| { event }
+
 }
