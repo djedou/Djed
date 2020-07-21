@@ -9,7 +9,10 @@ pub use djed::{
 pub use scope::{
     AnyScope, Scope, ComponentUpdate, Scoped,
 };
-pub use listener::*;
+
+/*pub mod events {
+    pub use crate::djed::listener::{*};
+}*/
 
 //pub use listener::*;
 //pub use scope::{AnyScope, Scope};

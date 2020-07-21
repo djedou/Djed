@@ -75,20 +75,8 @@ pub fn onchange_handler(this: &Element) -> ChangeData {
             ChangeData::Select(se)
         }
         _ => {
-            panic!("only an InputElement, TextAreaElement or SelectElement can have an onchange event listener");
+            unimplemented!("only an InputElement, TextAreaElement or SelectElement can have an onchange event listener");
+            //unimplemented!()
         }
     }
 }
-/*
-/// Handler to an event listener, only use is to cancel the event.
-
-#[derive(Debug)]
-pub struct EventListener;
-
-impl Drop for EventListener {
-    fn drop(&mut self) {
-        if let Some(event) = self.take() {
-            event.remove()
-        }
-    }
-}*/
