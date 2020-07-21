@@ -97,4 +97,13 @@ impl_action! {
     ontransitionend(name: "transitionend", event: TransitionEvent) -> web_sys::TransitionEvent => |_, event| { event }
     ontransitionrun(name: "transitionrun", event: TransitionEvent) -> web_sys::TransitionEvent => |_, event| { event }
     ontransitionstart(name: "transitionstart", event: TransitionEvent) -> web_sys::TransitionEvent => |_, event| { event }
+
+    onbegin(name: "onbegin", event: AnimationEvent) -> web_sys::AnimationEvent => |_, event| { event }
+    onrepeat(name: "onrepeat", event: AnimationEvent) -> web_sys::AnimationEvent => |_, event| { event }
+
+    onunload(name: "onunload", event: Event) -> web_sys::Event => |_, event| { event }
+
+    onactivate(name: "onactivate", event: Event) -> web_sys::Event => |_, event| { event }
+    onfocusin(name: "onfocusin", event: Event) -> web_sys::Event => |_, event| { event }
+    onfocusout(name: "onfocusout", event: Event) -> web_sys::Event => |_, event| { event }
 }
