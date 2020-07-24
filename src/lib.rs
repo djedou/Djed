@@ -6,6 +6,7 @@ pub mod utils;
 pub mod djed_agent;
 pub mod djed_format;
 pub mod djed_services;
+pub mod effect;
 
 
 use proc_macro_hack::proc_macro_hack;
