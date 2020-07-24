@@ -17,7 +17,7 @@ use web_sys::{
 pub const SVG_NAMESPACE: &str = "http://www.w3.org/2000/svg";
 
 /// Default namespace for html elements
-pub const HTML_NAMESPACE: &str = "http://www.w3.org/1999/xhtml";
+//pub const HTML_NAMESPACE: &str = "http://www.w3.org/1999/xhtml";
 
 /// Used to improve performance of runtime element checks
 #[derive(Clone, Copy, Debug, PartialEq)]
