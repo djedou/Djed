@@ -110,4 +110,7 @@ impl_action! {
 
     onmousewheel(name: "onmousewheel", event: MouseEvent) -> web_sys::MouseEvent => |_, event| { event }
 
+    onautocomplete(name: "onautocomplete", event: Event) -> web_sys::Event => |_, event| { event }
+    onautocompleteerror(name: "onautocompleteerror", event: Event) -> web_sys::Event => |_, event| { event }
+
 }
