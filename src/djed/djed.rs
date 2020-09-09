@@ -1,5 +1,4 @@
 
-//use crate::callback::Callback;
 use crate::djed_dom::{VChild, VNode};
 use std::cell::RefCell;
 use std::fmt;
@@ -12,7 +11,7 @@ use super::Scope;
 /// This type indicates that component should be rendered again.
 pub type ShouldRender = bool;
 
-/// Components are the basic building blocks of the UI in a Yew app. Each Component
+/// Components are the basic building blocks of the UI in a djed app. Each Component
 /// chooses how to display itself using received props and self-managed state.
 /// Components can be dynamic and interactive by declaring messages that are
 /// triggered and handled asynchronously. This async update mechanism is inspired by
@@ -26,7 +25,7 @@ pub trait Component: Sized + 'static {
     /// Properties are the inputs to a Component and should not mutated within a
     /// Component. They are passed to a Component using a JSX-style syntax.
     /// ```
-    ///# use yew::{Html, Component, Properties, ComponentLink, html};
+    ///# use djed::{Html, Component, Properties, ComponentLink, html};
     ///# struct Model;
     ///# #[derive(Clone, Properties)]
     ///# struct Props {
@@ -60,7 +59,7 @@ pub trait Component: Sized + 'static {
     /// received properties. Most Component's will use props with a `PartialEq`
     /// impl and will be implemented like this:
     /// ```
-    ///# use yew::{Html, Component, ComponentLink, html, ShouldRender};
+    ///# use djed::{Html, Component, ComponentLink, html, ShouldRender};
     ///# struct Model{props: ()};
     ///# impl Component for Model {
     ///#     type Message = ();type Properties = ();
@@ -81,15 +80,15 @@ pub trait Component: Sized + 'static {
     fn change(&mut self, _props: Self::Props) -> ShouldRender;
 
     /// Components define their visual layout using a JSX-style syntax through the use of the
-    /// `html!` procedural macro. The full guide to using the macro can be found in [Yew's
-    /// documentation](https://yew.rs/docs/concepts/html).
+    /// `html!` procedural macro. The full guide to using the macro can be found in [djed's
+    /// documentation](https://djed.rs/docs/concepts/html).
     fn view(&self) -> Html;
 
     /// The `rendered` method is called after each time a Component is rendered but
     /// before the browser updates the page.
     /// ## Examples
     /// ```rust
-    ///# use yew::{Html, Component, ComponentLink, html, ShouldRender};
+    ///# use djed::{Html, Component, ComponentLink, html, ShouldRender};
     ///# struct Model{props: ()};
     ///# impl Model { fn setup_element(&self) { } }
     ///# impl Component for Model {
@@ -118,7 +117,7 @@ pub type Html = VNode;
 ///
 /// In this example, the `Wrapper` component is used to wrap other elements.
 /// ```
-///# use yew::{Children, Html, Properties, Component, ComponentLink, html};
+///# use djed::{Children, Html, Properties, Component, ComponentLink, html};
 ///# #[derive(Clone, Properties)]
 ///# struct WrapperProps {
 ///#     children: Children,
@@ -147,7 +146,7 @@ pub type Html = VNode;
 /// The Wrapper component must define a `children` property in order to wrap other elements. The
 /// children property can be used to render the wrapped elements.
 /// ```
-///# use yew::{Children, Html, Properties, Component, ComponentLink, html};
+///# use djed::{Children, Html, Properties, Component, ComponentLink, html};
 /// #[derive(Clone, Properties)]
 /// struct WrapperProps {
 ///     children: Children,
@@ -179,7 +178,7 @@ pub type Children = ChildrenRenderer<Html>;
 ///
 /// In this example, the `List` component can wrap `ListItem` components.
 /// ```
-///# use yew::{html, Component, Renderable, Html, ComponentLink, ChildrenWithProps, Properties};
+///# use djed::{html, Component, Renderable, Html, ComponentLink, ChildrenWithProps, Properties};
 ///#
 ///# #[derive(Clone, Properties)]
 ///# struct ListProps {
@@ -223,7 +222,7 @@ pub type Children = ChildrenRenderer<Html>;
 /// The `List` component must define a `children` property in order to wrap the list items. The
 /// `children` property can be used to filter, mutate, and render the items.
 /// ```
-///# use yew::{html, Component, Html, ChildrenWithProps, ComponentLink, Properties};
+///# use djed::{html, Component, Html, ChildrenWithProps, ComponentLink, Properties};
 ///#
 /// #[derive(Clone, Properties)]
 /// struct ListProps {
@@ -337,7 +336,7 @@ impl<T> IntoIterator for ChildrenRenderer<T> {
 /// use stdweb::web::{html_element::InputElement, IHtmlElement};
 /// #[cfg(feature = "web_sys")]
 /// use web_sys::HtmlInputElement as InputElement;
-///# use yew::prelude::*;
+///# use djed::prelude::*;
 ///
 /// pub struct Input {
 ///     node_ref: NodeRef,
@@ -499,31 +498,3 @@ impl ToString for Href {
         self.link.to_owned()
     }
 }
-/*
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::utils::document;
-
-    #[cfg(feature = "wasm_test")]
-    use wasm_bindgen_test::{wasm_bindgen_test as test, wasm_bindgen_test_configure};
-
-    #[cfg(feature = "wasm_test")]
-    wasm_bindgen_test_configure!(run_in_browser);
-
-    #[test]
-    fn self_linking_node_ref() {
-        let node: Node = document().create_text_node("test node").into();
-        let node_ref = NodeRef::new(node.clone());
-        let node_ref_2 = NodeRef::new(node.clone());
-
-        // Link to self
-        node_ref.link(node_ref.clone());
-        assert_eq!(node, node_ref.get().unwrap());
-
-        // Create cycle of two node refs
-        node_ref.link(node_ref_2.clone());
-        node_ref_2.link(node_ref);
-        assert_eq!(node, node_ref_2.get().unwrap());
-    }
-}*/

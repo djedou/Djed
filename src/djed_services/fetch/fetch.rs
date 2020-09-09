@@ -5,6 +5,7 @@ use crate::djed_services::Task;
 use anyhow::{anyhow, Error};
 use http::request::Parts;
 use js_sys::{Array, Promise, Uint8Array};
+use js_sys;
 use std::cell::RefCell;
 use std::fmt;
 use std::iter::FromIterator;
@@ -168,8 +169,8 @@ impl FetchService {
     /// following examples:
     ///
     /// ```
-    ///# use yew::format::{Nothing, Json};
-    ///# use yew::services::fetch::Request;
+    ///# use djed::format::{Nothing, Json};
+    ///# use djed::services::fetch::Request;
     ///# use serde_json::json;
     /// let post_request = Request::post("https://my.api/v1/resource")
     ///     .header("Content-Type", "application/json")
@@ -185,9 +186,9 @@ impl FetchService {
     /// response body and metadata.
     ///
     /// ```
-    ///# use yew::{Component, ComponentLink, Html, Renderable};
-    ///# use yew::services::FetchService;
-    ///# use yew::services::fetch::{Response, Request};
+    ///# use djed::{Component, ComponentLink, Html, Renderable};
+    ///# use djed::services::FetchService;
+    ///# use djed::services::fetch::{Response, Request};
     ///# use anyhow::Error;
     ///# struct Comp;
     ///# impl Component for Comp {
@@ -222,11 +223,11 @@ impl FetchService {
     /// data type, then you will get a message indicating failure.
     ///
     /// ```
-    ///# use yew::format::{Json, Nothing, Format};
-    ///# use yew::services::FetchService;
+    ///# use djed::format::{Json, Nothing, Format};
+    ///# use djed::services::FetchService;
     ///# use http::Request;
-    ///# use yew::services::fetch::Response;
-    ///# use yew::{Component, ComponentLink, Renderable, Html};
+    ///# use djed::services::fetch::Response;
+    ///# use djed::{Component, ComponentLink, Renderable, Html};
     ///# use serde_derive::Deserialize;
     ///# use anyhow::Error;
     ///# struct Comp;
@@ -276,10 +277,10 @@ impl FetchService {
     /// `fetch` with provided `FetchOptions` object.
     /// Use it if you need to send cookies with a request:
     /// ```
-    ///# use yew::format::Nothing;
-    ///# use yew::services::fetch::{self, FetchOptions, Credentials};
-    ///# use yew::{Renderable, Html, Component, ComponentLink};
-    ///# use yew::services::FetchService;
+    ///# use djed::format::Nothing;
+    ///# use djed::services::fetch::{self, FetchOptions, Credentials};
+    ///# use djed::{Renderable, Html, Component, ComponentLink};
+    ///# use djed::services::FetchService;
     ///# use http::Response;
     ///# use anyhow::Error;
     ///# struct Comp;
@@ -545,7 +546,7 @@ impl WindowOrWorker {
             #[wasm_bindgen(method, getter, js_name = WorkerGlobalScope)]
             fn worker(this: &Global) -> JsValue;
         }
-
+        
         let global: Global = js_sys::global().unchecked_into();
 
         if !global.window().is_undefined() {
@@ -553,7 +554,7 @@ impl WindowOrWorker {
         } else if !global.worker().is_undefined() {
             Self::Worker(global.unchecked_into())
         } else {
-            panic!("Only supported in a browser or web worker");
+            panic!("Only supported in a browser or web worker{}",2);
         }
     }
 }

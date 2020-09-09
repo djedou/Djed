@@ -193,34 +193,3 @@ impl PartialEq for VNode {
         }
     }
 }
-/*
-#[cfg(all(test, feature = "web_sys"))]
-mod layout_tests {
-    use super::*;
-    use crate::virtual_dom::layout_tests::{diff_layouts, TestLayout};
-
-    #[cfg(feature = "wasm_test")]
-    use wasm_bindgen_test::{wasm_bindgen_test as test, wasm_bindgen_test_configure};
-
-    #[cfg(feature = "wasm_test")]
-    wasm_bindgen_test_configure!(run_in_browser);
-
-    #[test]
-    fn diff() {
-        let document = crate::utils::document();
-        let vref_node_1 = VNode::VRef(document.create_element("i").unwrap().into());
-        let vref_node_2 = VNode::VRef(document.create_element("b").unwrap().into());
-
-        let layout1 = TestLayout {
-            node: vref_node_1.into(),
-            expected: "<i></i>",
-        };
-
-        let layout2 = TestLayout {
-            node: vref_node_2.into(),
-            expected: "<b></b>",
-        };
-
-        diff_layouts(vec![layout1, layout2]);
-    }
-}*/

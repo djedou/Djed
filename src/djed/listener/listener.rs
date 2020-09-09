@@ -1,5 +1,3 @@
-//mod super::listener_web_sys;
-
 use wasm_bindgen::JsCast;
 use web_sys::{
     Element, FileList, HtmlInputElement as InputElement, HtmlSelectElement as SelectElement,
